@@ -44,7 +44,7 @@ const Map = () => {
                     title={light.id}
                   >
                     <Popup>
-                      {light.light_status}. <br /> Easily customizable.
+                      <h4>Street Light</h4> Status: {light.light_status}
                     </Popup>
                   </Marker>
                 ))}

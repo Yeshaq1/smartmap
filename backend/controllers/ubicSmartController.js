@@ -32,4 +32,26 @@ const getSmartControlData = async (req, res) => {
   }
 };
 
-export { getSmartControlData };
+const getAlerts = async (req, res) => {
+  const config = {
+    url: 'https://api.ubicquia.com/api/alerts?page=1&per_page=15',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': process.env.API_KEY,
+    },
+  };
+  try {
+    const alerts = await axios(config);
+
+    if (!alerts) {
+      res.status(500).json({ message: 'no data available' });
+    }
+
+    res.json(alerts.data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error });
+  }
+};
+
+export { getSmartControlData, getAlerts };
