@@ -5,8 +5,8 @@ const getSmartControlData = async (req, res) => {
     url: 'https://api.ubicquia.com/api/v2/nodes/light',
     method: 'post',
     headers: {
+      'Authorization': `Bearer ${req.user}`,
       'Content-Type': 'application/json',
-      'x-api-key': process.env.API_KEY,
     },
     filter: [
       {
@@ -37,7 +37,7 @@ const getAlerts = async (req, res) => {
     url: 'https://api.ubicquia.com/api/alerts?page=1&per_page=15',
     headers: {
       'Content-Type': 'application/json',
-      'x-api-key': process.env.API_KEY,
+      'Authorization': `Bearer ${req.user}`,
     },
   };
   try {
