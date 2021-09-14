@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 import qs from 'qs';
 
 const getToken = async (req, res, next) => {

@@ -5,6 +5,7 @@ import Spinner from './Spinner';
 import axios from 'axios';
 import { LayersControl } from 'react-leaflet';
 import { FeatureLayer } from 'react-esri-leaflet';
+import ClusterLayer from 'react-esri-leaflet/plugins/ClusterLayer';
 
 const Map = () => {
   const [nodeData, updateNodeData] = useState();
@@ -50,10 +51,10 @@ const Map = () => {
                 ))}
               </MarkerClusterGroup>
             </LayersControl.Overlay>
-            <LayersControl.Overlay name='Air Quality'>
+            {/* <LayersControl.Overlay name='Air Quality'>
               <FeatureLayer
                 ref={featureLayerRef}
-                url='https://services2.arcgis.com/e69aJifXCNR0AIA9/arcgis/rest/services/Seymour_CT_Repair/FeatureServer/0'
+                url='https://services2.arcgis.com/e69aJifXCNR0AIA9/arcgis/rest/services/Biddeford_ME_20210222_Maintenance/FeatureServer/0'
                 // eventHandlers={{
                 //   loading: () => console.log('featurelayer loading'),
                 //   load: () => {
@@ -68,6 +69,13 @@ const Map = () => {
                 //     }
                 //   },
                 // }}
+              />
+            </LayersControl.Overlay> */}
+
+            <LayersControl.Overlay name='Exsisting Lights'>
+              <ClusterLayer
+                ref={featureLayerRef}
+                url='https://services2.arcgis.com/e69aJifXCNR0AIA9/arcgis/rest/services/Biddeford_ME_20210222_InstalledLights/FeatureServer/0'
               />
             </LayersControl.Overlay>
           </LayersControl>
